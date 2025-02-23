@@ -1,14 +1,34 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'; // Import SweetAlert2
 
 const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleMenu = () => setIsOpen(!isOpen);
 
   // Check if user is on Sign In, Sign Up, or Verification page
   const isAuthPage = ["/", "/signUp", "/verification"].includes(location.pathname);
   const isVerificationPage = location.pathname === "/verification";
+
+  // Handle sign out confirmation using SweetAlert2
+  const handleSignOut = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will be signed out.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, sign out!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate("/"); // Redirect to Sign In after logging out
+      }
+    });
+  };
 
   return (
     <div className='flex flex-col items-center relative z-50'>
@@ -40,7 +60,7 @@ const Header = () => {
           ) : (
             <>
               <li><Link to="/profile">Profile</Link></li>
-              <li><Link to="/">Sign Out</Link></li>
+              <li><button onClick={handleSignOut} className="hover:text-red-400">Sign Out</button></li>
             </>
           )}
         </ul>
@@ -89,7 +109,9 @@ const Header = () => {
                 <Link to="/profile" onClick={() => setIsOpen(false)}>Profile</Link>
               </li>
               <li>
-                <Link to="/" onClick={() => setIsOpen(false)}>Sign Out</Link>
+                <button onClick={handleSignOut} className="hover:text-red-400">
+                  Sign Out
+                </button>
               </li>
             </>
           )}

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 
 const OTPVerification = () => {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
-  const [timer, setTimer] = useState(60);
+  const [timer, setTimer] = useState(30);
   const [canResend, setCanResend] = useState(false);
   const inputRefs = useRef([]);
 

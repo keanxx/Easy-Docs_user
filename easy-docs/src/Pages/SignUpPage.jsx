@@ -29,10 +29,10 @@ const SignUpPage = () => {
 
 
 
-                            <div className='space-y-4 md:mx-28 border-black border rounded-[10px] flex flex-col items-center justify-center mt-11 md:mt-20'>
+                            <div className='space-y-4 md:mx-40 border-black border rounded-[10px] flex flex-col items-center justify-center mt-11 md:mt-14'>
                                
                             <div className='mt-10 w-[85%] md:flex md:flex-col md:justify-center items-start'>
-                                    <p className='font-semibold text-[15px] text-left md:pl-20'>ID Number</p>
+                                    <p className='font-semibold text-[15px] text-left md:pl-10'>Resident ID</p>
                                     <input
                                         type="text"
                                         placeholder='2025-4609-0000'
@@ -41,7 +41,7 @@ const SignUpPage = () => {
                                 </div>
 
                                 <div className='mt-10 w-[85%] md:flex md:flex-col md:justify-center items-start'>
-                                    <p className='font-semibold text-[15px] text-left md:pl-20'>Email</p>
+                                    <p className='font-semibold text-[15px] text-left md:pl-10'>Email</p>
                                     <input
                                         type="email"
                                         placeholder='sample@email.com'
@@ -52,10 +52,24 @@ const SignUpPage = () => {
                                
 
                                 <div className='mt-10 w-[85%] md:flex md:flex-col md:justify-center items-start '>
-                                    <p className='font-semibold text-[15px] text-left md:pl-20'>Password</p>
+                                    <p className='font-semibold text-[15px] text-left md:pl-10'>Password</p>
                                     <input
                                         type="password"
-                                        placeholder=''
+                                        placeholder='********'
+                                        minLength="8"
+                                        required
+                                        className='mx-auto w-[100%] md:w-[300px] border text-[12px] border-black rounded-[15px] p-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
+                                    />
+                                  
+                                </div>
+
+                                <div className='mt-10 w-[85%] md:flex md:flex-col md:justify-center items-start '>
+                                    <p className='font-semibold text-[15px] text-left md:pl-10'>Confirm Password</p>
+                                    <input
+                                        type="password"
+                                        placeholder='********'
+                                        minLength="8"
+                                        required
                                         className='mx-auto w-[100%] md:w-[300px] border text-[12px] border-black md:mb-10 mb-8 rounded-[15px] p-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
                                     />
                                   
