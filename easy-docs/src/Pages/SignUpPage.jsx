@@ -1,7 +1,13 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 const SignUpPage = () => {
+
+    const navigate = useNavigate();
+
+    const handleSignUp = () =>{
+        navigate ("/verification");
+    }
     return (
         <>
             <div className='flex w-[100%] h-screen items-center justify-center    '>
@@ -56,7 +62,8 @@ const SignUpPage = () => {
                                 </div>
 
                                 <div className='md:w-[300px] w-[85%] h-[35px] bg-black rounded-full text-center items-center flex justify-center font-extrabold'>
-                                    <button className='text-white' type='submit'>SIGN UP</button>
+                                    <button  onClick={handleSignUp}
+                                    className='text-white' type='submit'>SIGN UP</button>
                                 </div>
                                 <div className='inline-flex space-x-1 justify-center py-5'>
                                     <p>Already have an account?</p>
