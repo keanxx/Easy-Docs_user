@@ -25,7 +25,14 @@ const Header = () => {
       confirmButtonText: "Yes, sign out!",
     }).then((result) => {
       if (result.isConfirmed) {
-        navigate("/"); // Redirect to Sign In after logging out
+        navigate("/", { replace: true });
+        
+        setTimeout(() => {
+          window.history.pushState(null, null, window.location.href);
+          window.onpopstate = () => {
+            window.history.pushState(null, null, window.location.href);// Redirect to Sign In after logging out
+          };
+        }, 0);
       }
     });
   };
